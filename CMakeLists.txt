@@ -13,6 +13,7 @@ set(SOURCE_FILES
 )
 set(HEADER_FILES
 	imconfig.h
+	imextras.h
 	imgui.h
 	imgui_internal.h
     misc/cpp/imgui_stdlib.h
