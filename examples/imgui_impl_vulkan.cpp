@@ -287,13 +287,7 @@ static void ImGui_ImplVulkan_SetupRenderState(ImDrawData* draw_data, VkPipeline 
 {
     // Bind pipeline
     {
-<<<<<<< HEAD
-        vkCmdBindPipeline(command_buffer, VK_PIPELINE_BIND_POINT_GRAPHICS, g_Pipeline);
-=======
         vkCmdBindPipeline(command_buffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline);
-        VkDescriptorSet desc_set[1] = { g_DescriptorSet };
-        vkCmdBindDescriptorSets(command_buffer, VK_PIPELINE_BIND_POINT_GRAPHICS, g_PipelineLayout, 0, 1, desc_set, 0, NULL);
->>>>>>> upstream/docking
     }
 
     // Bind Vertex And Index Buffer:
