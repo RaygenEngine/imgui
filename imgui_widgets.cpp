@@ -6731,7 +6731,7 @@ void ImGui::EndMenu()
     EndPopup();
 }
 
-bool ImGui::MenuItem(const char* label, const char* shortcut, bool selected, bool enabled)
+bool ImGui::MenuItem(const char* label, const char* shortcut, bool selected, bool enabled, float min_width)
 {
     ImGuiWindow* window = GetCurrentWindow();
     if (window->SkipItems)
@@ -6741,7 +6741,7 @@ bool ImGui::MenuItem(const char* label, const char* shortcut, bool selected, boo
     ImGuiStyle& style = g.Style;
     ImVec2 pos = window->DC.CursorPos;
     ImVec2 label_size = CalcTextSize(label, NULL, true);
-    label_size.x = ImMax(label_size.x, 150.f); // Always add some padding (improves ux experience)
+    label_size.x = ImMax(label_size.x, min_width); // Always some padding if requested (improves ux experience)
 
     // We've been using the equivalent of ImGuiSelectableFlags_SetNavIdOnHover on all Selectable() since early Nav system days (commit 43ee5d73),
     // but I am unsure whether this should be kept at all. For now moved it to be an opt-in feature used by menus only.
@@ -6781,9 +6781,9 @@ bool ImGui::MenuItem(const char* label, const char* shortcut, bool selected, boo
     return pressed;
 }
 
-bool ImGui::MenuItem(const char* label, const char* shortcut, bool* p_selected, bool enabled)
+bool ImGui::MenuItem(const char* label, const char* shortcut, bool* p_selected, bool enabled, float min_width)
 {
-    if (MenuItem(label, shortcut, p_selected ? *p_selected : false, enabled))
+    if (MenuItem(label, shortcut, p_selected ? *p_selected : false, enabled, min_width))
     {
         if (p_selected)
             *p_selected = !*p_selected;
