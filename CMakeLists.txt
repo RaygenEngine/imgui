@@ -6,10 +6,8 @@ set(SOURCE_FILES
 	imgui_draw.cpp
 	imgui_widgets.cpp
     misc/cpp/imgui_stdlib.cpp
-	examples/imgui_impl_vulkan.cpp
 	examples/imgui_impl_glfw.cpp
-	examples/imgui_impl_win32.cpp
-	examples/example_glfw_vulkan/main.cpp
+	examples/imgui_impl_dx12.cpp
 )
 set(HEADER_FILES
 	imconfig.h
@@ -17,9 +15,8 @@ set(HEADER_FILES
 	imgui.h
 	imgui_internal.h
     misc/cpp/imgui_stdlib.h
-    examples/imgui_impl_vulkan.h
 	examples/imgui_impl_glfw.h
-	examples/imgui_impl_win32.h
+	examples/imgui_impl_dx12.h
 )
 
 find_package(Vulkan REQUIRED)
